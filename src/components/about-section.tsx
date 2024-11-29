@@ -43,7 +43,7 @@ const About = () => {
             <Card className="overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-300">
               <CardContent className="p-0">
                 <img
-                  src="/placeholder.svg?height=400&width=600"
+                  src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Adroit USA Inc. Facility"
                   className="w-full h-auto object-cover"
                 />
@@ -103,7 +103,7 @@ const About = () => {
                 </motion.p>
                 <motion.div
                   className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9, duration: 0.5 }}
                 >
@@ -115,7 +115,7 @@ const About = () => {
                     <Card key={index} className="bg-green-800/30">
                       <CardContent className="p-4 flex items-center space-x-2">
                         <item.icon className="w-6 h-6 text-green-400" />
-                        <span className="text-sm text-green-600 font-semibold">
+                        <span className="text-sm text-white font-[500]">
                           {item.text}
                         </span>
                       </CardContent>

@@ -1,4 +1,4 @@
-import  { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,17 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const clientLogos = [
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-];
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw"
+
+]
 
 const ClientSection = () => {
   const sectionRef = useRef(null);
@@ -25,13 +19,13 @@ const ClientSection = () => {
     offset: ["start end", "end start"]
   });
 
-//   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0]);
+  //   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-b from-green-900 to-black text-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -45,20 +39,26 @@ const ClientSection = () => {
         <div className="mb-16 relative">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-green-900 to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-green-900 to-transparent z-10" />
-          <motion.div 
-            className="flex overflow-hidden"
+          <motion.div
+            className="flex overflow-hidden px-96"
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
-            transition={{ 
-              repeat: Infinity, 
-              repeatType: "loop", 
-              duration: 30, 
-              ease: "linear" 
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 30,
+              ease: "circIn"
             }}
           >
             {[...clientLogos, ...clientLogos].map((logo, index) => (
               <div key={index} className="flex-shrink-0 mx-8">
-                <img src={logo} alt={`Client ${index % 10 + 1}`} className="h-20 w-auto filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                <img
+                  src={logo}
+                  alt={`Client ${index % clientLogos.length + 1}`}
+                  width={80}
+                  height={80}
+                  className="h-20 w-auto   opacity-70 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             ))}
           </motion.div>
@@ -100,7 +100,7 @@ const ClientSection = () => {
           </motion.div>
 
           <motion.div
-            style={{  scale }}
+            style={{ scale }}
             className="relative z-10"
           >
             <Card className="bg-black border-green-500">

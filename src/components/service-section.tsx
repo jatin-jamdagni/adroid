@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from 'lucide-react';
 // Building2, Users, Cog, DollarSign, Headphones, ShieldCheck
 const serviceCards = [
-  { title: "Medical Device Assembly", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Laser Micro/Five Axis Swiss Machining", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Injection Molding", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Design/Engineering", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Project Management", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Quality Assurance", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Tooling", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Application Lab", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Secondary Operations", image: "/placeholder.svg?height=200&width=300" },
-  { title: "Extrusion", image: "/placeholder.svg?height=200&width=300" },
+  { title: "Medical Device Assembly", image: "https://images.unsplash.com/photo-1679496124837-0d1973713b62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { title: "Laser Micro/Five Axis Swiss Machining", image: "https://imgs.search.brave.com/5pHfpr6YzfzZQS1NeuxytQG2ssFBcyIF5mXnMoBHMtM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pcHJv/cnd4aGxpcnJsajVv/LmxlYWRvbmdjZG4u/Y29tL2Nsb3VkL29x/QnBrS2lqUmxqU25t/cmlpa2xtaS9TRkgz/MDUwLTI3NS0yNzUu/cG5n" },
+  { title: "Injection Molding", image: "https://upload.wikimedia.org/wikipedia/commons/9/98/Injection_plastic_filter.jpg" },
+  { title: "Design/Engineering", image: "https://www.twi-global.com/CachedImage.axd?ImageName=Engineering-Design-Process-Diagram.jpg&ImageWidth=1000&ImageHeight=1000&ImageVersionID=98506&ImageModified=20200612142136" },
+  { title: "Project Management", image: "https://as1.ftcdn.net/jpg/04/72/54/68/1000_F_472546867_4MBw9cVFYE7AwnrIIbmZ8xXS0V3mrIzr.jpg" },
+  { title: "Quality Assurance", image: "https://t3.ftcdn.net/jpg/09/54/12/20/240_F_954122032_XUmBKeN1Jb8oJjPc9hdeLlhPUbQNXbWK.jpg?height=200&width=300" },
+  { title: "Tooling", image: "https://t3.ftcdn.net/jpg/03/19/14/00/240_F_319140040_rB8kP5XYvFkXAEIZVOurAPbyhvNuOJ75.jpg" },
+  { title: "Application Lab", image: "https://as2.ftcdn.net/v2/jpg/09/79/32/01/1000_F_979320103_C5AoklRXLnVP6JctzPKW16RuGM5SbjrW.jpg" },
+  { title: "Secondary Operations", image: "https://t4.ftcdn.net/jpg/09/49/03/49/240_F_949034935_Cin4xXdwlKyjN6u2NBmgYMxMtLW0JKyW.jpg" },
+  { title: "Extrusion", image: "https://as2.ftcdn.net/v2/jpg/09/05/43/41/1000_F_905434107_9VyFbs1DEw3nR4VXpwHlOM0Tho3wkITK.jpg" },
 ];
 
 const ServiceSection = () => {
