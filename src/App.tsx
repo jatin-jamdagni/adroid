@@ -4,6 +4,10 @@ import Navbar from "./components/navbar";
 import HeroSection from "./components/hero-section";
 import Loader from "./components/loader";
 import About from "./components/about-section";
+import ServiceSection from "./components/service-section";
+import ClientSection from "./components/contact-us-section";
+import Footer from "./components/footer";
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -27,6 +31,10 @@ const App = () => {
             <Navbar key="navbar" />
             <HeroSection key="hero" />
             <About key="about" />
+            <ServiceSection key="service" />
+            <ClientSection key="client"/>
+            <Footer key="footer" />
+
           </>
         )}
       </AnimatePresence>

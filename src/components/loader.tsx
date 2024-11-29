@@ -20,11 +20,13 @@ const Loader = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-4xl md:text-6xl font-bold mb-4"
         >
-          <img
+          {/* <img
             src="https://tirony.me/manny_adroit/wp-content/uploads/2024/01/Adroit-USA-logo-1.jpg"
             alt="Adroit USA Logo"
             className=" h-28"
-          />
+          /> */}
+
+          Logo
           {/* <span className="bg-gradient-to-r from-green-400 to-green-500 text-transparent bg-clip-text">
             Your Company
           </span> */}

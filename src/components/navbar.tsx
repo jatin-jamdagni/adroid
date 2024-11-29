@@ -43,11 +43,12 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             className="text-green-400 font-bold text-xl"
           >
-            <img
+            {/* <img
               src="https://tirony.me/manny_adroit/wp-content/uploads/2024/01/Adroit-USA-logo-1.jpg"
               alt="Adroit USA Logo"
               className=" h-16 w-auto"
-            />
+            /> */}
+           <h1 className=" text-2xl">Logo</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
