@@ -13,7 +13,7 @@ import {
 
 const About = () => {
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
 
   return (
@@ -21,14 +21,14 @@ const About = () => {
       id="about"
       className="py-20 bg-gradient-to-b from-green-600 to-black text-white overflow-hidden"
     >
-      <motion.div className="container mx-auto px-4" style={{ opacity, scale }}>
+      <motion.div className="container mx-auto px-4" style={{  scale }}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-5xl font-bold text-center mb-16"
         >
-          <span className="bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-green-400 to-green text-white bg-clip-text">
             About Adroit USA Inc.
           </span>
         </motion.h2>
