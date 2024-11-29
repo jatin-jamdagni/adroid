@@ -25,8 +25,7 @@ const Loader = () => {
             alt="Adroit USA Logo"
             className=" h-28"
           /> */}
-
-          Logo
+          LOGO
           {/* <span className="bg-gradient-to-r from-green-400 to-green-500 text-transparent bg-clip-text">
             Your Company
           </span> */}
