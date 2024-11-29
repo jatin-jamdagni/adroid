@@ -19,9 +19,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-b from-green-600 to-black text-white overflow-hidden"
+      className="md:py-20 bg-gradient-to-b from-green-600 to-black text-white overflow-hidden"
     >
-      <motion.div className="container mx-auto px-4" style={{  scale }}>
+      <motion.div className="container mx-auto px-4" style={{ scale }}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +191,10 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <Button variant="outline" className="group  text-black hover:text-green-600">
+          <Button
+            variant="outline"
+            className="group  text-black hover:text-green-600"
+          >
             Discover Our Comprehensive Solutions
             <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
           </Button>
