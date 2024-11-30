@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,23 +7,42 @@ import { Textarea } from "@/components/ui/textarea";
 
 const clientLogos = [
   "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
-  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
-  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw", "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw"
-
-]
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+  "https://imgs.search.brave.com/wpGGQ1De-WMl3jo96fFcY1rr0KeZ-fUshEM7xkQVeFk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzA1/L0dvb2dsZS1QaG90/b3MtbG9nby00MDB4/NDAwLnBuZw",
+];
 
 const ClientSection = () => {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   //   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-green-900 to-black text-white overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-b from-blue-900 to-white text-black overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -31,14 +50,14 @@ const ClientSection = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold text-center mb-12"
         >
-          <span className="bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
             Our Trusted Clients
           </span>
         </motion.h2>
 
         <div className="mb-16 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-green-900 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-green-900 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-blue-900 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-blue-900 to-transparent z-10" />
           <motion.div
             className="flex overflow-hidden px-96"
             initial={{ x: 0 }}
@@ -47,14 +66,14 @@ const ClientSection = () => {
               repeat: Infinity,
               repeatType: "loop",
               duration: 30,
-              ease: "circIn"
+              ease: "circIn",
             }}
           >
             {[...clientLogos, ...clientLogos].map((logo, index) => (
               <div key={index} className="flex-shrink-0 mx-8">
                 <img
                   src={logo}
-                  alt={`Client ${index % clientLogos.length + 1}`}
+                  alt={`Client ${(index % clientLogos.length) + 1}`}
                   width={80}
                   height={80}
                   className="h-20 w-auto   opacity-70 hover:opacity-100 transition-opacity duration-300"
@@ -70,17 +89,25 @@ const ClientSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="bg-black/50 backdrop-blur-sm border-green-500">
+            <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
               <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-4 text-green-400">Client Success Stories</h3>
-                <p className="mb-4 text-green-100">
-                  Our clients range from innovative startups to Fortune 500 companies. We've helped them achieve remarkable results through our comprehensive manufacturing solutions.
+                <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+                  Client Success Stories
+                </h3>
+                <p className="mb-4 text-blue-100">
+                  Our clients range from innovative startups to Fortune 500
+                  companies. We've helped them achieve remarkable results
+                  through our comprehensive manufacturing solutions.
                 </p>
-                <ul className="list-disc list-inside mb-4 text-white">
+                <ul className="list-disc list-inside mb-4 text-black">
                   <li>Reduced time-to-market by 30% for medical devices</li>
                   <li>Improved product quality and consistency by 25%</li>
-                  <li>Streamlined supply chain management, cutting costs by 20%</li>
-                  <li>Achieved 40% cost savings through our all-in-one approach</li>
+                  <li>
+                    Streamlined supply chain management, cutting costs by 20%
+                  </li>
+                  <li>
+                    Achieved 40% cost savings through our all-in-one approach
+                  </li>
                 </ul>
                 <Button variant="outline" className="mt-4 group">
                   Read Case Studies
@@ -92,26 +119,47 @@ const ClientSection = () => {
                     stroke="currentColor"
                     className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
                   </svg>
                 </Button>
               </CardContent>
             </Card>
           </motion.div>
 
-          <motion.div
-            style={{ scale }}
-            className="relative z-10"
-          >
-            <Card className="bg-black border-green-500">
+          <motion.div style={{ scale }} className="relative z-10">
+            <Card className="bg-white border-blue-500">
               <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-4 text-green-400">Get in Touch</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+                  Get in Touch
+                </h3>
                 <form className="space-y-4">
-                  <Input type="text" placeholder="Your Name" className="bg-white/10 border-green-500 placeholder-gray-100 text-white active:border-green-600 foucs:border-green-700 active:shadow-md" />
-                  <Input type="email" placeholder="Your Email" className="bg-white/10 border-green-500 placeholder-gray-100 text-white active:border-green-600 foucs:border-green-700 active:shadow-md" />
-                  <Input type="text" placeholder="Company" className="bg-white/10 border-green-500 placeholder-gray-100 text-white active:border-green-600 foucs:border-green-700 active:shadow-md" />
-                  <Textarea placeholder="How can we help you?" className="bg-white/10 border-green-500 placeholder-gray-100 text-white active:border-green-600 foucs:border-green-700 active:shadow-md" />
-                  <Button type="submit" className="w-full bg-green-500 hover:bg-green-600 transition-colors">
+                  <Input
+                    type="text"
+                    placeholder="Your Name"
+                    className="bg-white/10 border-blue-500 placeholder-gray-100 text-black active:border-blue-600 foucs:border-blue-700 active:shadow-md"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    className="bg-white/10 border-blue-500 placeholder-gray-100 text-black active:border-blue-600 foucs:border-blue-700 active:shadow-md"
+                  />
+                  <Input
+                    type="text"
+                    placeholder="Company"
+                    className="bg-white/10 border-blue-500 placeholder-gray-100 text-black active:border-blue-600 foucs:border-blue-700 active:shadow-md"
+                  />
+                  <Textarea
+                    placeholder="How can we help you?"
+                    className="bg-white/10 border-blue-500 placeholder-gray-100 text-black active:border-blue-600 foucs:border-blue-700 active:shadow-md"
+                  />
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-500 hover:bg-blue-600 transition-colors"
+                  >
                     Send Message
                   </Button>
                 </form>
@@ -125,4 +173,3 @@ const ClientSection = () => {
 };
 
 export default ClientSection;
-

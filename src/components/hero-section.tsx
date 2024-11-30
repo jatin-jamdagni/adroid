@@ -14,7 +14,7 @@ const HeroSection = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/60" /> {/* Darker overlay */}
+        <div className="absolute inset-0 bg-white/60" /> {/* Darker overlay */}
       </div>
 
       {/* Content Container */}
@@ -25,7 +25,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
         >
-          <span className="bg-gradient-to-r from-green-400 to-green-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-transparent bg-clip-text">
             Innovation and Excellence for
             <br />
             40+ Years
@@ -36,7 +36,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-white text-xl md:text-2xl mb-12 max-w-3xl mx-auto"
+          className="text-black text-xl md:text-2xl mb-12 max-w-3xl mx-auto"
         >
           Your Trusted Partner for Manufacturing Solutions, From Startups to
           Fortune 500 Companies
@@ -46,22 +46,22 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="space-y-4 text-white text-lg mb-12"
+          className="space-y-4 text-black text-lg mb-12"
         >
           <div className="flex items-center justify-center space-x-2">
-            <span className="text-green-400">✓</span>
+            <span className="text-blue-400">✓</span>
             <span>
               Established Expertise: Serving clients globally since 2003.
             </span>
           </div>
           <div className="flex items-center justify-center space-x-2">
-            <span className="text-green-400">✓</span>
+            <span className="text-blue-400">✓</span>
             <span>
               Comprehensive Services: All your needs met under one roof.
             </span>
           </div>
           <div className="flex items-center justify-center space-x-2">
-            <span className="text-green-400">✓</span>
+            <span className="text-blue-400">✓</span>
             <span>
               California-Based Support: U.S. laws and real-time assistance at
               every step.
@@ -74,7 +74,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <Button className="bg-green-500 hover:bg-green-600 text-white px-8 py-6 text-lg rounded-full">
+          <Button className="bg-blue-500 hover:bg-blue-600 text-black px-8 py-6 text-lg rounded-full">
             Get Started
           </Button>
         </motion.div>

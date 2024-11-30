@@ -8,7 +8,6 @@ import ServiceSection from "./components/service-section";
 import ClientSection from "./components/contact-us-section";
 import Footer from "./components/footer";
 
-
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +21,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <AnimatePresence>
         {loading ? (
           <Loader />
@@ -32,9 +31,8 @@ const App = () => {
             <HeroSection key="hero" />
             <About key="about" />
             <ServiceSection key="service" />
-            <ClientSection key="client"/>
+            <ClientSection key="client" />
             <Footer key="footer" />
-
           </>
         )}
       </AnimatePresence>

@@ -41,7 +41,7 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-green-400 font-bold text-xl"
+            className="text-blue-400 font-bold text-xl"
           >
             {/* <img
               src="https://tirony.me/manny_adroit/wp-content/uploads/2024/01/Adroit-USA-logo-1.jpg"
@@ -57,7 +57,7 @@ const Navbar = () => {
               <motion.a
                 key={item.title}
                 href={item.href}
-                className="text-white hover:text-green-400 transition-colors"
+                className="text-black hover:text-blue-400 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -70,7 +70,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              className="text-white"
+              className="text-black"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -99,7 +99,7 @@ const Navbar = () => {
                   key={item.title}
                   href={item.href}
                   variants={itemVariants}
-                  className="block text-white hover:text-green-400 py-2 transition-colors"
+                  className="block text-black hover:text-blue-400 py-2 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}

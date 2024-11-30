@@ -19,7 +19,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="md:py-20 bg-gradient-to-b from-green-600 to-black text-white overflow-hidden"
+      className="md:py-20 bg-gradient-to-b from-blue-600 to-white text-black overflow-hidden"
     >
       <motion.div className="container mx-auto px-4" style={{ scale }}>
         <motion.h2
@@ -28,7 +28,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-5xl font-bold text-center mb-16"
         >
-          <span className="bg-gradient-to-r from-green-400 to-green text-white bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-400 to-blue text-black bg-clip-text">
             About Adroit USA Inc.
           </span>
         </motion.h2>
@@ -50,7 +50,7 @@ const About = () => {
               </CardContent>
             </Card>
             <motion.div
-              className="absolute -bottom-4 -right-4 bg-green-600 text-white p-4 rounded-lg shadow-lg"
+              className="absolute -bottom-4 -right-4 bg-blue-600 text-black p-4 rounded-lg shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -65,9 +65,9 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Card className="bg-black/50 backdrop-blur-sm border-green-500">
-              <CardContent className="p-6 text-white">
-                <h3 className="text-3xl font-semibold mb-6 text-green-400">
+            <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
+              <CardContent className="p-6 text-black">
+                <h3 className="text-3xl font-semibold mb-6 text-blue-400">
                   Excellence in Service and Execution
                 </h3>
                 <motion.p
@@ -112,10 +112,10 @@ const About = () => {
                     { icon: Users, text: "Global Client Base" },
                     { icon: Cog, text: "Turnkey Solutions" },
                   ].map((item, index) => (
-                    <Card key={index} className="bg-green-800/30">
+                    <Card key={index} className="bg-blue-800/30">
                       <CardContent className="p-4 flex items-center space-x-2">
-                        <item.icon className="w-6 h-6 text-green-400" />
-                        <span className="text-sm text-white font-[500]">
+                        <item.icon className="w-6 h-6 text-blue-400" />
+                        <span className="text-sm text-black font-[500]">
                           {item.text}
                         </span>
                       </CardContent>
@@ -134,7 +134,7 @@ const About = () => {
           className="text-center mb-12"
         >
           <h3 className="text-4xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
               USA Quality at Offshore Pricing
             </span>
           </h3>
@@ -147,37 +147,37 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="grid md:grid-cols-3 gap-8"
         >
-          <Card className="bg-black/50 backdrop-blur-sm border-green-500">
+          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
             <CardContent className="p-6">
-              <DollarSign className="w-12 h-12 text-green-400 mb-4" />
-              <h4 className="text-xl text-green-600 font-semibold mb-2">
+              <DollarSign className="w-12 h-12 text-blue-400 mb-4" />
+              <h4 className="text-xl text-blue-600 font-semibold mb-2">
                 California-based Operations
               </h4>
-              <p className=" text-white">
+              <p className=" text-black">
                 Adroit USA Inc. is your single point of contact, headquartered
                 in the U.S. and protected by U.S. laws.
               </p>
             </CardContent>
           </Card>
-          <Card className="bg-black/50 backdrop-blur-sm border-green-500">
+          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
             <CardContent className="p-6">
-              <Headphones className="w-12 h-12 text-green-400 mb-4" />
-              <h4 className="text-xl font-semibold text-green-600 mb-2">
+              <Headphones className="w-12 h-12 text-blue-400 mb-4" />
+              <h4 className="text-xl font-semibold text-blue-600 mb-2">
                 Comprehensive Support
               </h4>
-              <p className=" text-white">
+              <p className=" text-black">
                 We provide real-time engineering, customer service, contracting,
                 invoicing, and payment support.
               </p>
             </CardContent>
           </Card>
-          <Card className="bg-black/50 backdrop-blur-sm border-green-500">
+          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
             <CardContent className="p-6">
-              <ShieldCheck className="w-12 h-12 text-green-400 mb-4" />
-              <h4 className="text-xl font-semibold mb-2 text-green-600">
+              <ShieldCheck className="w-12 h-12 text-blue-400 mb-4" />
+              <h4 className="text-xl font-semibold mb-2 text-blue-600">
                 Your Extended Team
               </h4>
-              <p className=" text-white">
+              <p className=" text-black">
                 We're an extension of your team, offering the experience and
                 expertise to ensure your project's success.
               </p>
@@ -193,7 +193,7 @@ const About = () => {
         >
           <Button
             variant="outline"
-            className="group  text-black hover:text-green-600"
+            className="group  text-black hover:text-blue-600"
           >
             Discover Our Comprehensive Solutions
             <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />

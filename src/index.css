@@ -72,12 +72,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: black;
+  background: white;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: green;
+  background: blue;
 }
 
 /* Handle on hover */
