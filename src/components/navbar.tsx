@@ -48,7 +48,7 @@ const Navbar = () => {
               alt="Adroit USA Logo"
               className=" h-16 w-auto"
             /> */}
-            <h1 className=" text-2xl ">LOGO</h1>
+            <h1 className=" text-2xl ">Rejected</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
