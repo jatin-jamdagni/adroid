@@ -74,7 +74,10 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <Button className="bg-blue-500 hover:bg-blue-600 text-black px-8 py-6 text-lg rounded-full">
+          <Button
+            variant={"gooeyLeft"}
+            className="bg-blue-500 hover:bg-blue-600 text-black px-8 py-6 text-lg rounded-full"
+          >
             Get Started
           </Button>
         </motion.div>
