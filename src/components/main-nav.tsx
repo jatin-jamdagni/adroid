@@ -152,13 +152,13 @@ export function MainNav() {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div className=" flex justify-between items-center px-4 w-full">
-            <Link href="/" className="font-bold text-primary">
+          <div className="md:hidden flex justify-between items-center px-4 w-full">
+            <Link href="/" className="font-bold text-primary ">
               <Image alt="LOGO" width={200} height={200} src={imageUrl} />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden">
+                <Button variant="outline" size="icon">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
