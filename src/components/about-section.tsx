@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -69,15 +69,15 @@ export function AboutSection() {
     setCurrentIndex(index);
   };
 
-  const goToPrevious = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + solutions.length) % solutions.length
-    );
-  };
+  // const goToPrevious = () => {
+  //   setCurrentIndex(
+  //     (prevIndex) => (prevIndex - 1 + solutions.length) % solutions.length
+  //   );
+  // };
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % solutions.length);
-  };
+  // const goToNext = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % solutions.length);
+  // };
 
   return (
     <div className="relative w-full h-dvh overflow-hidden bg-foreground">

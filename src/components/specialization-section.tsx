@@ -7,7 +7,6 @@ import {
   Package,
   Rocket,
   Repeat,
-  LifeBuoy,
 } from "lucide-react";
 
 export function SpecializationSection() {
