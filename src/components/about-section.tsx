@@ -1,207 +1,168 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import {
-  ChevronRight,
-  Building2,
-  Users,
-  Cog,
-  DollarSign,
-  Headphones,
-  ShieldCheck,
-} from "lucide-react";
+"use client";
 
-const About = () => {
-  const { scrollYProgress } = useScroll();
-  // const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+const solutions = [
+  {
+    title: "Medical Device Assembly",
+    description:
+      "Our state-of-the-art medical device assembly services combine precision engineering with stringent quality control. We specialize in assembling complex medical devices, from diagnostic equipment to surgical instruments, ensuring each component meets the highest standards of accuracy and reliability.",
+    details:
+      "Our clean room facilities and ISO 13485 certified processes guarantee that all medical devices are assembled in a controlled environment, minimizing contamination risks. We employ advanced technologies such as robotics and computer-aided manufacturing to enhance precision and consistency in the assembly process.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5d0a707f4348f80001b50931/1563903762728-KQAFP77C3KYQ55K8D786/Medical-Device-Assembly.jpg?format=2500w",
+  },
+  {
+    title: "Stainless Steel Manufacturing",
+    description:
+      "Our Stainless Steel manufacturing capabilities cover a wide range of materials and processes. From CNC machining to metal injection molding, we produce high-quality parts for aerospace, automotive, and industrial applications.",
+    details:
+      "We utilize advanced metallurgy techniques and cutting-edge machinery to fabricate components with tight tolerances and complex geometries. Our expertise extends to various metals including stainless steel, aluminum, titanium, and exotic alloys, ensuring we can meet the most demanding specifications.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5d0a707f4348f80001b50931/1563903117277-TO9QMALRH0JD0749ZID6/Stainless-Steel-Manufacturing.jpg?format=2500w",
+  },
+  {
+    title: "Injection Molding",
+    description:
+      "Our injection molding services offer a cost-effective solution for high-volume production of plastic parts. We employ advanced molding techniques to produce components with intricate designs and tight tolerances.",
+    details:
+      "Our facility houses state-of-the-art injection molding machines capable of handling a wide range of thermoplastics. We offer multi-shot molding, overmolding, and insert molding capabilities. Our in-house tool design and fabrication ensure optimal mold performance and longevity.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5d0a707f4348f80001b50931/1563903117277-TO9QMALRH0JD0749ZID6/Stainless-Steel-Manufacturing.jpg?format=2500w",
+  },
+  {
+    title: "Design/Engineering/Project Management",
+    description:
+      "Our comprehensive design, engineering, and project management services cover the entire product lifecycle. From initial concept to final production, our team of experts guides your project through every stage, ensuring optimal outcomes.",
+    details:
+      "We employ the latest CAD/CAM software and simulation tools to optimize designs for manufacturability and performance. Our project management approach follows industry-standard methodologies like Six Sigma and Agile, ensuring efficient execution and timely delivery of projects.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5d0a707f4348f80001b50931/1563903085571-PBW6EU5WC5NDBEAIIAJ2/Engineering-Project-Management.jpg?format=2500w",
+  },
+  {
+    title: "Quality Assurance",
+    description:
+      "Our rigorous quality assurance processes ensure that every product meets or exceeds industry standards. We employ advanced inspection technologies and follow strict quality control protocols throughout the manufacturing process.",
+    details:
+      "Our quality management system is ISO 9001 certified, and we adhere to industry-specific standards such as AS9100 for aerospace and IATF 16949 for automotive. We utilize state-of-the-art CMM machines, X-ray inspection, and 3D scanning technologies to perform comprehensive quality checks.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5d0a707f4348f80001b50931/1567190475243-1EI9II4W9UVLLLQCZYY3/Quality-Control.jpg?format=2500w",
+  },
+];
+
+export function AboutSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % solutions.length);
+    }, 5000); // Change slide every 10 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + solutions.length) % solutions.length
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % solutions.length);
+  };
 
   return (
-    <section
-      id="about"
-      className="md:py-20 bg-gradient-to-b from-blue-600 to-white text-black overflow-hidden"
-    >
-      <motion.div className="container mx-auto px-4" style={{ scale }}>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+    <div className="relative w-full h-dvh overflow-hidden bg-foreground">
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold text-center mb-16"
+          className="absolute inset-0 flex items-center justify-center "
         >
-          <span className="bg-gradient-to-r from-blue-400 to-blue text-black bg-clip-text">
-            About Adroit USA Inc.
-          </span>
-        </motion.h2>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative"
-          >
-            <Card className="overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <CardContent className="p-0">
-                <img
-                  src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Adroit USA Inc. Facility"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <motion.div
-              className="absolute -bottom-4 -right-4 bg-blue-600 text-black p-4 rounded-lg shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.3 }}
+          <Image
+            src={solutions[currentIndex].image}
+            alt={solutions[currentIndex].title}
+            fill
+            className="object-"
+          />
+          <div className="absolute bg-foreground/80 mx-28 rounded-md backdrop-blur-sm flex flex-col justify-center p-8 md:p-16 text-background ">
+            <motion.h2
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl md:text-5xl font-bold mb-4 "
             >
-              <p className="font-bold">Established 2003</p>
-              <p>California, USA</p>
+              {solutions[currentIndex].title}
+            </motion.h2>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-lg md:text-xl mb-6"
+            >
+              {solutions[currentIndex].description}
+            </motion.p>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-sm md:text-base mb-8"
+            >
+              {solutions[currentIndex].details}
+            </motion.p>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              <Button
+                variant="outline"
+                className="text-primary-foreground bg-primary"
+                size="lg"
+              >
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
-              <CardContent className="p-6 text-black">
-                <h3 className="text-3xl font-semibold mb-6 text-blue-400">
-                  Excellence in Service and Execution
-                </h3>
-                <motion.p
-                  className="mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                >
-                  Adroit USA Inc. has been at the forefront of the Medical
-                  Device Industry since 2003, providing custom, value-added,
-                  turnkey solutions with a legacy of almost 40 years through our
-                  manufacturing facilities in India.
-                </motion.p>
-                <motion.p
-                  className="mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                >
-                  Our Pleasanton, CA office ensures seamless support for all
-                  operations, offering you the quality of domestic service
-                  coupled with the cost-effectiveness of offshore manufacturing.
-                </motion.p>
-                <motion.p
-                  className="mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                >
-                  As a vertically integrated contract manufacturer, we
-                  specialize in complete medical device fabrication, all under
-                  one roof.
-                </motion.p>
-                <motion.div
-                  className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
-                  initial={{ opacity: 1, y: 0 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                >
-                  {[
-                    { icon: Building2, text: "40+ Years of Experience" },
-                    { icon: Users, text: "Global Client Base" },
-                    { icon: Cog, text: "Turnkey Solutions" },
-                  ].map((item, index) => (
-                    <Card key={index} className="bg-blue-800/30">
-                      <CardContent className="p-4 flex items-center space-x-2">
-                        <item.icon className="w-6 h-6 text-blue-400" />
-                        <span className="text-sm text-black font-[500]">
-                          {item.text}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </motion.div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h3 className="text-4xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
-              USA Quality at Offshore Pricing
-            </span>
-          </h3>
-          <p className="text-xl mb-8">Complete Custom Solutions</p>
+          </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
-            <CardContent className="p-6">
-              <DollarSign className="w-12 h-12 text-blue-400 mb-4" />
-              <h4 className="text-xl text-blue-600 font-semibold mb-2">
-                California-based Operations
-              </h4>
-              <p className=" text-black">
-                Adroit USA Inc. is your single point of contact, headquartered
-                in the U.S. and protected by U.S. laws.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
-            <CardContent className="p-6">
-              <Headphones className="w-12 h-12 text-blue-400 mb-4" />
-              <h4 className="text-xl font-semibold text-blue-600 mb-2">
-                Comprehensive Support
-              </h4>
-              <p className=" text-black">
-                We provide real-time engineering, customer service, contracting,
-                invoicing, and payment support.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="bg-white/50 backdrop-blur-sm border-blue-500">
-            <CardContent className="p-6">
-              <ShieldCheck className="w-12 h-12 text-blue-400 mb-4" />
-              <h4 className="text-xl font-semibold mb-2 text-blue-600">
-                Your Extended Team
-              </h4>
-              <p className=" text-black">
-                We're an extension of your team, offering the experience and
-                expertise to ensure your project's success.
-              </p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Button
-            variant="outline"
-            className="group  text-black hover:text-blue-600"
-          >
-            Discover Our Comprehensive Solutions
-            <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
-          </Button>
-        </motion.div>
-      </motion.div>
-    </section>
+      </AnimatePresence>
+      {/* <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-primary/50 rounded-full p-2 hover:bg-primary/75 transition-all z-10"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-primary-foreground" />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-primary/50 rounded-full p-2 hover:bg-primary/75 transition-all z-10"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-primary-foreground" />
+      </button> */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+        {solutions.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              currentIndex === index ? "bg-primary" : "bg-primary/50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
-};
-
-export default About;
+}
