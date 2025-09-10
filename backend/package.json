@@ -1,0 +1,45 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "start:prod": "npm run build && npm run start",
+    "clean": "rm -rf dist",
+    "seed:stocks": "tsx src/scripts/seedStocks.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/nodemailer": "^7.0.1",
+    "@types/otp-generator": "^4.0.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "buffer-from": "^1.1.2",
+    "dotenv": "^17.2.2",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "google-auth-library": "^10.3.0",
+    "http-status-codes": "^2.3.0",
+    "inline-css": "^4.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.2.0",
+    "mongoose": "^8.18.0",
+    "node-cron": "^4.2.1",
+    "node-rsa": "^1.1.1",
+    "nodemailer": "^7.0.6",
+    "otp-generator": "^4.0.1",
+    "socket.io": "^4.8.1",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  }
+}
