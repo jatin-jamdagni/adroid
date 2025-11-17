@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import bcrypt from "bcryptjs";
-import { BadRequestError, NotFoundError } from "../config/customError";
+import { BadRequestError, NotFoundError, UnauthorizedError } from "../config/customError";
 
 // 1️⃣ Define TypeScript interface for User
 export interface IUser extends Document {
@@ -185,6 +185,61 @@ UserSchema.statics.updatePassword = async function (
     throw err;
   }
 };
+
+
+UserSchema.methods.comparePassword = async function (pass: string) {
+
+  if (this.blocked_until_password && this.blocked_until_password > new Date()) {
+    throw new UnauthorizedError(`Invalid login attemps exceeded. Please try after 30 minutes.`)
+  }
+
+
+  const isMatch = await bcrypt.compare(pass, this.password);
+
+  if (!isMatch) {
+    this.wrong_password_attempts += 1;
+    if (this.wrong_password_attempts >= 3) {
+      this.blocked_until_password = new Date(Date.now() + 30 * 60 * 1000);
+      this.wrong_password_attempts = 0;
+
+    }
+    await this.save();
+  } else {
+    this.wrong_password_attempts = 0;
+    this.blocked_until_password = null;
+    await this.save()
+  }
+
+  return isMatch;
+}
+
+UserSchema.methods.comparePIN = async function comparePIN(candidatePIN: string) {
+  if (this.blocked_until_pin && this.blocked_until_pin > new Date()) {
+    throw new UnauthorizedError("Limit exceeded, Try after 30 minutes")
+  }
+
+  const hashedPIN = this.login_pin;
+
+  const isMatch = await bcrypt.compare(candidatePIN, hashedPIN);
+
+  if (!isMatch) {
+
+    this.wrong_pin_attempts += 1;
+    if (this.wrong_pin_attempts >= 3) {
+      this.blocked_until_pin = new Date(Date.now() + 30 * 60 * 1000);
+      this.wrong_pin_attempts = 0;
+
+    }
+    await this.save();
+  } else {
+    this.wrong_pin_attempts = 0;
+    this.blocked_until_pin = null;
+    await this.save();
+  }
+  return isMatch
+}
+
+
 
 const User: Model<IUser> = mongoose.model<IUser>("User", UserSchema);
 export default User;
